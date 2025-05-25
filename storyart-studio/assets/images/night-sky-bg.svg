@@ -1,0 +1,70 @@
+<svg width="400" height="800" viewBox="0 0 400 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="skyGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="30%" style="stop-color:#16213e"/>
+      <stop offset="60%" style="stop-color:#0f1626"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
+    </radialGradient>
+    
+    <radialGradient id="moonGradient" cx="30%" cy="20%" r="50%">
+      <stop offset="0%" style="stop-color:#f8f8ff"/>
+      <stop offset="50%" style="stop-color:#e6e6fa"/>
+      <stop offset="100%" style="stop-color:#d8bfd8"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="400" height="800" fill="url(#skyGradient)"/>
+  
+  <!-- Moon -->
+  <circle cx="320" cy="120" r="45" fill="url(#moonGradient)" opacity="0.9"/>
+  <circle cx="315" cy="115" r="6" fill="#d8bfd8" opacity="0.4"/>
+  <circle cx="330" cy="125" r="4" fill="#d8bfd8" opacity="0.3"/>
+  <circle cx="325" cy="135" r="3" fill="#d8bfd8" opacity="0.2"/>
+  
+  <!-- Stars -->
+  <circle cx="50" cy="80" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="120" cy="60" r="1.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="180" cy="90" r="1" fill="#ffffff" opacity="0.7"/>
+  <circle cx="250" cy="70" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="80" cy="150" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="350" cy="200" r="1.5" fill="#ffffff" opacity="0.8"/>
+  <circle cx="30" cy="220" r="1" fill="#ffffff" opacity="0.7"/>
+  <circle cx="200" cy="180" r="2" fill="#ffffff" opacity="0.9"/>
+  <circle cx="300" cy="250" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="150" cy="300" r="1.5" fill="#ffffff" opacity="0.8"/>
+  <circle cx="370" cy="320" r="1" fill="#ffffff" opacity="0.7"/>
+  <circle cx="100" cy="380" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="280" cy="350" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="40" cy="450" r="1.5" fill="#ffffff" opacity="0.7"/>
+  <circle cx="220" cy="420" r="1" fill="#ffffff" opacity="0.8"/>
+  <circle cx="320" cy="480" r="2" fill="#ffffff" opacity="0.9"/>
+  <circle cx="160" cy="520" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="90" cy="580" r="1.5" fill="#ffffff" opacity="0.8"/>
+  <circle cx="260" cy="560" r="1" fill="#ffffff" opacity="0.7"/>
+  <circle cx="350" cy="600" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="140" cy="650" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="300" cy="680" r="1.5" fill="#ffffff" opacity="0.7"/>
+  <circle cx="70" cy="720" r="1" fill="#ffffff" opacity="0.8"/>
+  <circle cx="240" cy="750" r="2" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Constellation lines -->
+  <path d="M50 80 L120 60 L180 90 L250 70" stroke="#ffffff" stroke-width="0.5" opacity="0.3" fill="none"/>
+  <path d="M200 180 L300 250 L350 200" stroke="#ffffff" stroke-width="0.5" opacity="0.3" fill="none"/>
+  
+  <!-- Nebula effects -->
+  <ellipse cx="150" cy="400" rx="80" ry="60" fill="#4a0e4e" opacity="0.2"/>
+  <ellipse cx="250" cy="600" rx="100" ry="80" fill="#1e3a8a" opacity="0.15"/>
+  
+  <!-- Twinkling effect overlay -->
+  <circle cx="50" cy="80" r="3" fill="#ffffff" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="250" cy="70" r="3" fill="#ffffff" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="180" r="3" fill="#ffffff" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
