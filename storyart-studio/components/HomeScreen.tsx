@@ -1,41 +1,30 @@
-import React from 'react';
+import React, { useRef, RefObject } from 'react';
 import { View, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { Link } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
-import AnimatedLottieView from 'lottie-react-native';
-import { useRef, RefObject } from 'react';
+import LottieView from 'lottie-react-native';
 import { commonStyles as styles } from '../styles/styles';
 
 export default function HomeScreen() {
-  const fairyRef = useRef<AnimatedLottieView>(null);
-  const dragonRef = useRef<AnimatedLottieView>(null);
-  const unicornRef = useRef<AnimatedLottieView>(null);
+  const fairyRef = useRef<LottieView | null>(null);
+  const dragonRef = useRef<LottieView | null>(null);
+  const unicornRef = useRef<LottieView | null>(null);
 
-  // Function to start animation
-  const triggerAnimation = (ref: RefObject<AnimatedLottieView | null>) => {
+ const triggerAnimation = (ref: React.RefObject<LottieView | null>) => {
     ref.current?.reset();
     ref.current?.play();
   };
 
   return (
-    <ImageBackground 
-      source={require('@/assets/images/night-sky-bg-2.png')} 
-      style={styles.container}
-    >
-      {/*Background animation */}
-      <AnimatedLottieView
-        source={require('@/assets/animations/stars.json')}
+    <ImageBackground source={require('@/assets/images/night-sky-bg-2.png')} style={styles.container}>
+      <LottieView
+        source={require('../assets/animations/stars.json')}
         autoPlay
         loop
         style={styles.starsAnimation}
       />
-      
-      <LinearGradient
-        colors={['#FF00FF', '#00FFFF', '#FF00FF']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.gradientTitle}
-      >
+
+      <LinearGradient colors={['#FF00FF', '#00FFFF', '#FF00FF']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.gradientTitle}>
         <Text style={styles.title}>Казкова студія</Text>
       </LinearGradient>
 
@@ -63,34 +52,34 @@ export default function HomeScreen() {
       {/*Decorative characters */}
       <View style={styles.charactersContainer}>
         <TouchableOpacity onPress={() => triggerAnimation(fairyRef)}>
-          <AnimatedLottieView
+          <LottieView
             ref={fairyRef}
-            source={require('@/assets/animations/fairy.json')}
+            source={require('../assets/animations/fairy.json')}
             autoPlay={false}
             loop={false}
             style={styles.character}
           />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => triggerAnimation(dragonRef)}>
-          <AnimatedLottieView
+        {/* <TouchableOpacity onPress={() => triggerAnimation(dragonRef)}>
+          <LottieView
             ref={dragonRef}
             source={require('@/assets/animations/dragon.json')}
             autoPlay={false}
             loop={false}
             style={styles.character}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
-        <TouchableOpacity onPress={() => triggerAnimation(unicornRef)}>
-          <AnimatedLottieView
+        {/* <TouchableOpacity onPress={() => triggerAnimation(unicornRef)}>
+          <LottieView
             ref={unicornRef}
             source={require('@/assets/animations/unicorn.json')}
             autoPlay={false}
             loop={false}
             style={styles.character}
-          />
-        </TouchableOpacity>
+          /> */}
+        {/* </TouchableOpacity> */}
       </View>
     </ImageBackground>
   );

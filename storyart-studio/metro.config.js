@@ -1,21 +1,17 @@
 const { getDefaultConfig } = require('expo/metro-config');
 const path = require('path');
 
-const config = getDefaultConfig(__dirname);
+module.exports = (async () => {
+  const config = await getDefaultConfig(__dirname);
 
-// Adding support for Lottie files
-config.resolver.assetExts = [...config.resolver.assetExts, 'lottie'];
-config.resolver.sourceExts = [...config.resolver.sourceExts, 'lottie'];
+  // Додаємо підтримку розширення .lottie
+  config.resolver.assetExts.push('lottie');
+  config.resolver.sourceExts.push('lottie');
 
-// Delete the old resolveRequest or replace it with:
-config.resolver.resolveRequest = (context, moduleName, platform) => {
-  if (moduleName.startsWith('lottie-react-native')) {
-    return {
-      filePath: path.join(__dirname, 'node_modules/lottie-react-native/src/js/LottieView.js'),
-      type: 'sourceFile',
-    };
-  }
-  return context.resolveRequest(context, moduleName, platform);
-};
+  // Додаємо watchFolders, якщо потрібно (можна спробувати без цього спочатку)
+  config.watchFolders = [
+    path.resolve(__dirname, 'node_modules/lottie-react-native'),
+  ];
 
-module.exports = config;
+  return config;
+})();
